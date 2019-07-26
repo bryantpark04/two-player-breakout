@@ -22,8 +22,8 @@ public class Display extends JPanel
       
       //adding int listener
       addKeyListener(new Key());
-      setFoucsable(true);
-      t=new Timer(5,new Listener());
+      setFocusable(true);
+      t=new Timer(5, new Listener());
       t.start();
    }
    //setting up the key class
