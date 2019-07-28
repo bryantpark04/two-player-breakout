@@ -2,6 +2,9 @@ import javax.swing.*;
 
 public class Driver
 {
+	public static final int WIDTH = 600;
+	public static final int HEIGHT = 600;
+	
 	public static void main(String[] args)
 	{
 		JOptionPane.showMessageDialog(null, "Welcome to Breakout2!");
@@ -10,7 +13,7 @@ public class Driver
 		JOptionPane.showMessageDialog(null, "Good luck!\nPress space to start.");
 		
 		JFrame frame = new JFrame("Breakout2");
-		frame.setSize(600, 600);
+		frame.setSize(WIDTH, HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		//frame.setContentPane(new Display());

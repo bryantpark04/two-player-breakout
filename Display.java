@@ -11,13 +11,13 @@ public class Display extends JPanel
    private Timer t;
    //make fields for blocks, slider, etc
    
-	public Display(int x,int y) 
+	public Display() 
 	{
       //setting up background
-      myImage=new Buffered(x,y,BufferedImage.TYPE_INT_RGB);
+      myImage=new Buffered(Driver.WIDTH, Driver.HEIGHT,BufferedImage.TYPE_INT_RGB);
       myBuffer=myImage.getGraphics();
       myBuffer.setColor(Color.BLACK);
-      myBuffer.fillRect(0,0,x,y);
+      myBuffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
       //instantiate blocks, slider, etc
       
       //adding int listener
