@@ -82,11 +82,11 @@ public class Slider
    {
       while(myX<0)
       {
-         setX(getX()+600);
+         setX(getX()+Driver.WIDTH);
       }
       while(myX>0)
       {
-         setX(getX()-600);
+         setX(getX()-Driver.WIDTH);
       }
    }
 }

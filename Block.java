@@ -21,12 +21,12 @@ public class Block
       
       //adding listeners
       addKeyListener(new Key());
-      setFoucsable(true);
+      setFocusable(true);
       
       //defining private fields
       myLength=40;
       myWidth=35;
-      for(int x=0;x<600;x+=40)
+      for(int x=0;x<Driver.WIDTH;x+=40)
       {
          myX=x;
       }
