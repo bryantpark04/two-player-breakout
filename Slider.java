@@ -5,7 +5,7 @@ import java.awt.image.*;
 public class Slider
 {
    //privatizing fields
-   private BufferedImage = myImage;
+   private BufferedImage myImage;
    private Graphics myBuffer;
    private int myLength;
    private int myWidth;
@@ -16,7 +16,7 @@ public class Slider
 	public Slider() 
 	{
       //setting up buffer
-      myImage=new Buffered(x,y,BufferedImage.TYPE_INT_RGB);
+      myImage=new BufferedImage(x,y,BufferedImage.TYPE_INT_RGB);
       myBuffer=myImage.getGraphics();
       
       //adding listeners
