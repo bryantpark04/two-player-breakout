@@ -14,8 +14,6 @@ public class Display extends JPanel
    private Block block;
    private Ball ball;
    private Slider slider;
-   
-   
 	public Display() 
 	{
       //setting up background
@@ -31,6 +29,10 @@ public class Display extends JPanel
       t=new Timer(5, new Listener());
       t.start();
    }
+   
+   public void update() {
+		
+	}
    //setting up the key class
    private class Key extends KeyAdapter
    {

@@ -1,14 +1,24 @@
 import java.util.Scanner;
 import java.io.*;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class Scoreboard extends JPanel
 {
+	private JTextField currentScore, highScore;
 	public Scoreboard()
 	{
+		currentScore = new JTextField("Current score: 0");
+		highScore = new JTextField("High score: " + loadHighScore());
 		
+		setLayout(new FlowLayout());
+		add(currentScore);
+		add(highScore);
 	}
 	
+	public void update() {
+		
+	}
 	private int loadHighScore() 	// loads high score from a txt file
 	{
 		int hs = 0;
