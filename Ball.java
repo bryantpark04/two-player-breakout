@@ -17,21 +17,23 @@ public class Ball
 		g.setColor(Color.black);
 		g.fillOval((int) myX, (int) myY, myDiameter, myDiameter);
 	}
-	public int update() {
+	public void update() {
 		if(myX < 0 || myX > Driver.WIDTH - myDiameter) {
 			mydx *= -1;
 		}
 		if(myY < 0 || myY > Driver.HEIGHT - myDiameter) {
 			mydy *= -1;
 		}
-		//if(myY > Driver.HEIGHT - myDiameter) { 	// condition for loss - move to separate method and call from Panel???
-			//return 1;
-		//}
 		
 		myX += mydx;
 		myY += mydy;
+	}
+	public boolean hitsBottom() {
+		if(myY > Driver.HEIGHT - myDiameter) {
+			return true;
+		}
 		
-		return 0;
+		return false;
 	}
 	
 	// getters
