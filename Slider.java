@@ -16,12 +16,8 @@ public class Slider
 	public Slider() 
 	{
       //setting up buffer
-      myImage=new BufferedImage(x,y,BufferedImage.TYPE_INT_RGB);
+      myImage=new BufferedImage(Driver.WIDTH,Driver.HEIGHT,BufferedImage.TYPE_INT_RGB);
       myBuffer=myImage.getGraphics();
-      
-      //adding listeners
-      addKeyListener(new Key());
-      setFoucsable(true);
       
       //defining private fields
       myLength=75;
@@ -55,7 +51,7 @@ public class Slider
    }
    public void setY(int x)
    {
-      myY=y;
+      myY=x;
    }
    
    //drawing the slider

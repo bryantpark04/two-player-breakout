@@ -6,15 +6,20 @@ import java.awt.image.*;
 public class Display extends JPanel 
 {
    //making information private
-   private BufferedImage my Image;
+   private BufferedImage myImage;
    private Graphics myBuffer;
    private Timer t;
+   
    //make fields for blocks, slider, etc
+   private Block block;
+   private Ball ball;
+   private Slider slider;
+   
    
 	public Display() 
 	{
       //setting up background
-      myImage=new Buffered(Driver.WIDTH, Driver.HEIGHT,BufferedImage.TYPE_INT_RGB);
+      myImage=new BufferedImage(Driver.WIDTH, Driver.HEIGHT,BufferedImage.TYPE_INT_RGB);
       myBuffer=myImage.getGraphics();
       myBuffer.setColor(Color.BLACK);
       myBuffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
@@ -31,13 +36,19 @@ public class Display extends JPanel
    {
       public void keyPressed(KeyEvent e)
       {
-         if(e.getKeyCode()==(KeyEvent.VK_A&&KeyEvent.VK_LEFT)
+         if(e.getKeyCode()==(KeyEvent.VK_A))
          {
-            //move slider left
+            if(e.getKeyCode()==(KeyEvent.VK_LEFT))
+            {
+               slider.moveLeft();
+            }
          }
-         if(e.getKeyCode()==(KeyEvent.VK_D&&KeyEvent.VK_RIGHT)
+         if(e.getKeyCode()==(KeyEvent.VK_D))
          {
-            //move slider right
+            if(e.getKeyCode()==(KeyEvent.VK_RIGHT))
+            {
+               slider.moveRight();
+            }
          }
       }
     }
@@ -45,13 +56,24 @@ public class Display extends JPanel
     {
       public void actionPerformed(ActionEvent e)
       {
-         myBuffer.setColor(Display.BACKGROUND);
          myBuffer.setColor(Color.BLACK);
          
-         //draw blocks
-         //draw slider
-         //draw ball
+         //draw block
+         for(int x=0;x<600;x+=40)
+         {
+            for(int y=0;y<280;y+=35)
+            {
+               myBuffer.setColor(Color.YELLOW);
+               myBuffer.fillRect(x,y,x+40,y+40);
+            }
+         }
          
+         //draw slider
+         slider.draw(myBuffer);
+         
+         //draw ball
+         ball=new Ball(300,300);
+         ball.draw(myBuffer);
       }
     }
     public void paintComponent(Graphics g)
