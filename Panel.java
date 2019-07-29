@@ -15,12 +15,13 @@ private Scoreboard scoreboard;
 		add(scoreboard, BorderLayout.SOUTH);
 		
 		Timer t = new Timer(10, new Listener());
+		t.start();
 	}
 	
 	private class Listener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if(display.gameEnd()) {
-				JOptionPane.showMessageDialog(null, "Game Over!");
+				System.exit(0);
 			}
 			if(display.pointScored()) {
 				scoreboard.incrementScore();

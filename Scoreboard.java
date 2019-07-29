@@ -6,11 +6,14 @@ import java.awt.*;
 public class Scoreboard extends JPanel
 {
 	private JLabel currentScore, highScore;
-	private int score = 0;
+	private int score = 0, hs = 0;
+	private Scanner s;
 	public Scoreboard()
 	{
+		loadHighScore();
+		
 		currentScore = new JLabel("Current score: " + score);
-		highScore = new JLabel("High score: " + loadHighScore());
+		highScore = new JLabel("High score: " + hs);
 		
 		setBackground(Color.white);
 		setLayout(new BorderLayout());
@@ -20,30 +23,27 @@ public class Scoreboard extends JPanel
 	
 	public void incrementScore() {
 		score++;
-		if(score > loadHighScore()) {
-			storeHighScore(score);
-			highScore.setText("High score: " + loadHighScore());
+		if(score > hs) {
+			hs = score;
+			storeHighScore();
+			highScore.setText("High score: " + hs);
 		}
 		currentScore.setText("Current score: " + score);
 	}
-	private int loadHighScore() 	// loads high score from a txt file
+	private void loadHighScore() 	// loads high score from a txt file
 	{
-		int hs = 0;
-		
 		try
 		{
-			Scanner s = new Scanner(new File("data.txt"));
+			s = new Scanner(new File("data.txt"));
 			hs = s.nextInt();
 			s.close();
 		}
-		catch(FileNotFoundException e)
+		catch(Exception e)
 		{
 			System.out.println("Data file not found! High score set to 0.");
 		}
-		
-		return hs;
 	}
-	private void storeHighScore(int hs) 	// writes high score to a txt file - should be called whenever the high score updates
+	private void storeHighScore() 	// writes high score to a txt file - should be called whenever the high score updates
 	{
 		try
 		{

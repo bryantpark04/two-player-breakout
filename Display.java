@@ -21,7 +21,7 @@ public class Display extends JPanel
       buffer.setColor(Color.white);
       buffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
       
-      ball = new Ball(300.0, 300.0, Math.random() * 20 - 10, 3);
+      ball = new Ball(300.0, 300.0, 0, 3);
       
       slider = new Slider(270, 550);
       
@@ -40,7 +40,10 @@ public class Display extends JPanel
 	
 	// boolean methods
 	public boolean gameEnd() {
-		return ball.hitsBottom();
+		if(ball.hitsBottom()) {
+			return true;
+		}
+		return false;
 	}
 	public boolean pointScored() {
 		for(int r = 0; r < blocks.length; r++) {

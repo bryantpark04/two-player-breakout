@@ -41,13 +41,13 @@ public class Slider
 	// movement methods
 	// possible addition - dx changes depending on difficulty?
 	public void moveLeft() {
-		myX -= 10;
+		myX -= 5;
 		if(myX + myWidth / 2.0 < 0) {
 			myX = (int) (Driver.WIDTH - myWidth / 2.0);
 		}
 	}
 	public void moveRight() {
-		myX += 10;
+		myX += 5;
 		if(myX + myWidth / 2.0 > Driver.WIDTH) {
 			myX = (int) (0 - myWidth / 2.0);
 		}
