@@ -14,8 +14,8 @@ public class Scoreboard extends JPanel
 		
 		setBackground(Color.white);
 		setLayout(new BorderLayout());
-		add(currentScore, BorderLayout.EAST);
-		add(highScore, BorderLayout.WEST);
+		add(currentScore, BorderLayout.WEST);
+		add(highScore, BorderLayout.EAST);
 	}
 	
 	public void incrementScore() {

@@ -17,7 +17,7 @@ public class Display extends JPanel
       buffer.setColor(Color.white);
       buffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
       
-      ball = new Ball(300.0, 300.0, 0.3, 0.4);
+      ball = new Ball(300.0, 300.0, Math.random() * 2 - 1, 0.6);
       
       slider = new Slider(270, 550);
       
@@ -36,8 +36,8 @@ public class Display extends JPanel
 	
 	// collision helpers
 	private void collisionSlider(Ball b) {
-		if(b.getX() > slider.getX() && b.getX() < slider.getX() + slider.getWidth()) {
-			if(Math.abs(b.getY() + b.getDiameter() - slider.getY()) < 0.5) {
+		if(b.getX() + b.getDiameter() > slider.getX() && b.getX() < slider.getX() + slider.getWidth()) {
+			if(b.getY() + b.getDiameter() > slider.getY() && b.getY() < slider.getY() + slider.getHeight()) {
 				b.setdy(-1 * b.getdy());
 			}
 		}
@@ -46,13 +46,13 @@ public class Display extends JPanel
 		for(int r = 0; r < blocks.length; r++) {
 			for(int c = 0; c < blocks[0].length; c++) {
 				try {
-					if(b.getX() > blocks[r][c].getX() && b.getX() + b.getDiameter() < blocks[r][c].getX() + blocks[r][c].getWidth()) {
-						if(Math.abs(b.getY() - (blocks[r][c].getY() + blocks[r][c].getHeight())) < 0.5) {
+					if(b.getX() + b.getDiameter() > blocks[r][c].getX() && b.getX() < blocks[r][c].getX() + blocks[r][c].getWidth()) {
+						if(b.getY() + b.getDiameter() > blocks[r][c].getY() && b.getY() < blocks[r][c].getY() + blocks[r][c].getHeight()) {
 							blocks[r][c].setX(-100);
 							blocks[r][c].setY(-100);
 							b.setdy(-1 * b.getdy());
 							b.setdx(Math.random() * 2 - 1);
-							break; 	// tmp fix
+							//break; 	// tmp fix
 						}
 					}
 				}
