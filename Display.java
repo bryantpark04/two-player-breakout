@@ -15,10 +15,9 @@ public class Display extends JPanel
    private Block block;
    private Ball ball;
    private Slider slider;
-   
-   
-   public Display() 
-   {
+
+	public Display() 
+	{
       //setting up background
       myImage=new BufferedImage(Driver.WIDTH, Driver.HEIGHT,BufferedImage.TYPE_INT_RGB);
       myBuffer=myImage.getGraphics();
@@ -33,6 +32,10 @@ public class Display extends JPanel
       t.start();
       hits=0;
    }
+   
+   public void update() {
+		
+	}
    //setting up the key class
    private class Key extends KeyAdapter
    {

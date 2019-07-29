@@ -16,6 +16,7 @@ public class Driver
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
-		//frame.setContentPane(new Display());
+		frame.setContentPane(new Panel());
+		
 	}
 }
