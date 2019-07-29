@@ -6,8 +6,6 @@ import javax.swing.*;
 public class Block
 {
    //privatizing fields
-   private BufferedImage myImage;
-   private Graphics myBuffer;
    private int myLength;
    private int myWidth;
    
@@ -15,12 +13,8 @@ public class Block
    
    //block constructor
    public Block()
-   {
-      //setting up buffer
-      myImage=new BufferedImage(Driver.WIDTH,Driver.HEIGHT,BufferedImage.TYPE_INT_RGB);
-      myBuffer=myImage.getGraphics();
-      
-      //defining private fields
+   { 	
+		//defining private fields
       myLength=40;
       myWidth=35;
    }
