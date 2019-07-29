@@ -13,5 +13,21 @@ private Scoreboard scoreboard;
 		
 		add(display, BorderLayout.CENTER);
 		add(scoreboard, BorderLayout.SOUTH);
+		
+		Timer t = new Timer(10, new Listener());
+	}
+	
+	private class Listener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(display.gameEnd()) {
+				JOptionPane.showMessageDialog(null, "Game Over!");
+			}
+			if(display.pointScored()) {
+				scoreboard.incrementScore();
+			}
+			if(display.roundWon()) {
+				JOptionPane.showMessageDialog(null, "You won!");
+			}
+		}
 	}
 }
