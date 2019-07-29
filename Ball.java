@@ -1,3 +1,8 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.*;
+
 public class Ball
 {
 	private int myX, myY, mydx = 0, mydy = 0, myDiameter = 15;		// private fields
@@ -12,15 +17,15 @@ public class Ball
 	{
 		if(myX < 0 || myX > Driver.WIDTH - myDiameter) 	// checks if ball is off screen, and updates dx and dy accordingly
 		{
-			dx *= -1;
+			mydx *= -1;
 		}
 		if(myY < 0 || myY > Driver.HEIGHT - myDiameter)
 		{
-			dy *= -1;
+			mydy *= -1;
 		}
 		
-		myX += dx;
-		myY += dy;
+		myX += mydx;
+		myY += mydy;
 	}
 	public void draw(Graphics g)
 	{
