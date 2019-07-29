@@ -9,6 +9,7 @@ public class Display extends JPanel
    private BufferedImage myImage;
    private Graphics myBuffer;
    private Timer t;
+   int hits;
    
    //make fields for blocks, slider, etc
    private Block block;
@@ -16,8 +17,8 @@ public class Display extends JPanel
    private Slider slider;
    
    
-	public Display() 
-	{
+   public Display() 
+   {
       //setting up background
       myImage=new BufferedImage(Driver.WIDTH, Driver.HEIGHT,BufferedImage.TYPE_INT_RGB);
       myBuffer=myImage.getGraphics();
@@ -30,6 +31,7 @@ public class Display extends JPanel
       setFocusable(true);
       t=new Timer(5, new Listener());
       t.start();
+      hits=0;
    }
    //setting up the key class
    private class Key extends KeyAdapter
@@ -51,9 +53,9 @@ public class Display extends JPanel
             }
          }
       }
-    }
-    private class Listener implements ActionListener
-    {
+   }
+   private class Listener implements ActionListener
+   {
       public void actionPerformed(ActionEvent e)
       {
          myBuffer.setColor(Color.BLACK);
@@ -74,10 +76,32 @@ public class Display extends JPanel
          //draw ball
          ball=new Ball(300,300);
          ball.draw(myBuffer);
+         
+         //clear and move ball
+         myBuffer.setColor(Color.BLACK);
+         myBuffer.fillRect(0,0,600,600); 
+         ball.move(600, 600);
+      
       }
-    }
-    public void paintComponent(Graphics g)
-    {
+   }
+   public void paintComponent(Graphics g)
+   {
       g.drawImage(myImage,0,0,getWidth(),getHeight(),null);
-    }
+   }
+    
+   public void collide(Ball ball, Block block)
+   {
+      double dist=distance(ball.getX(),ball.getY(),block.getX(),block.getY());
+      
+      if(dist<block.getLength()+7.5)
+      {
+         hits++;
+      }
+   }
+    
+   private double distance(double x1, double y1, double x2, double y2)
+   {
+      return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+   }
+
 }
