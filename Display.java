@@ -24,7 +24,10 @@ public class Display extends JPanel
       myBuffer.setColor(Color.BLACK);
       myBuffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
       //instantiate blocks, slider, etc
-      
+      slider=new Slider();
+      ball=new Ball(300,300);
+      for(int x=1;x<=120;x++)
+         block=new Block();
       //adding int listener
       addKeyListener(new Key());
       setFocusable(true);
@@ -57,6 +60,7 @@ public class Display extends JPanel
          }
       }
    }
+   
    private class Listener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
@@ -74,10 +78,11 @@ public class Display extends JPanel
          }
          
          //draw slider
+        
          slider.draw(myBuffer);
          
          //draw ball
-         ball=new Ball(300,300);
+         
          ball.draw(myBuffer);
          
          //clear and move ball

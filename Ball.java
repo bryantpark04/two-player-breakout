@@ -32,8 +32,8 @@ public class Ball
    }
    public void draw(Graphics g)
    {
-      g.setColor(Color.black);
-      g.drawRect((int)myX, (int)myY, myDiameter, myDiameter);
+      g.setColor(Color.BLUE);
+      g.drawOval((int)myX, (int)myY, myDiameter, myDiameter);
    }
 	
 	// getters

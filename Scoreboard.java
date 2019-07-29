@@ -5,11 +5,11 @@ import java.awt.*;
 
 public class Scoreboard extends JPanel
 {
-	private JTextField currentScore, highScore;
+	private JLabel currentScore, highScore;
 	public Scoreboard()
 	{
-		currentScore = new JTextField("Current score: 0");
-		highScore = new JTextField("High score: " + loadHighScore());
+		currentScore = new JLabel("Current score: 0");
+		highScore = new JLabel("High score: " + loadHighScore());
 		
 		setLayout(new FlowLayout());
 		add(currentScore);

@@ -15,8 +15,8 @@ public class Driver
 		JFrame frame = new JFrame("Breakout2");
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setContentPane(new Panel());
-		
+		frame.setLocation(100,100);
+		frame.setContentPane(new Panel());	
+      frame.setVisible(true);
 	}
 }
