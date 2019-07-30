@@ -28,12 +28,12 @@ public class StartPanel extends JPanel
          setVisible(false);
          f.setVisible(false);
          JFrame frame = new JFrame("Breakout2");
-         frame.setSize(Driver.WIDTH, Driver.HEIGHT);
-         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         frame.setLocationRelativeTo(null);
-         frame.setContentPane(new Panel());
+		   frame.setSize(Driver.WIDTH, Driver.HEIGHT);
+		   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		   frame.setLocationRelativeTo(null);
+		   frame.setContentPane(new Panel(f));
          frame.setVisible(true);
-      
+
       }
    }
       
@@ -43,4 +43,4 @@ public class StartPanel extends JPanel
       ImageIcon breakout=new ImageIcon("ree.jpg");
       g.drawImage(breakout.getImage(),0,0,640,300,null);
    }
-}
+ }  

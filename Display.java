@@ -72,7 +72,7 @@ public class Display extends JPanel
 	// boolean methods
    public boolean gameEnd() {
       if(ball.hitsBottom()) {
-         // return true;
+          //return true;
       }
       return false;
    }
