@@ -16,16 +16,11 @@ public class Display extends JPanel
    public Display() { 	// constructor
       myImage = new BufferedImage(Driver.WIDTH, Driver.HEIGHT, BufferedImage.TYPE_INT_RGB);
       buffer = myImage.getGraphics();
-      
       buffer.setColor(Color.black);
       buffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
       
-      
-      ball = new Ball(300.0, 300.0, 0, 3);
-      
-      
+      ball = new Ball(300.0, 300.0, 0, 3); 	// instantiates objects
       slider = new Slider(270, 550);
-      
       for(int r = 0; r < blocks.length; r++) {
          for(int c = 0; c < blocks[0].length; c++) {
             blocks[r][c] = new Block(1 + 60 * r, 1 + 30 * c);
@@ -43,6 +38,7 @@ public class Display extends JPanel
       ball.setdx(0);
       ball.setdy(0);
       removeKeyListener(k);
+      
       on1 = false;
       on2 = false;
       on3 = false;
@@ -67,6 +63,9 @@ public class Display extends JPanel
       level++;
    }
    public void reset() {
+      level = 0;
+      
+   	// resets objects
       for(int r = 0; r < blocks.length; r++) {
          for(int c = 0; c < blocks[0].length; c++) {
             blocks[r][c].setX(1 + 60 * r);
@@ -74,14 +73,15 @@ public class Display extends JPanel
          }
       }
       
-      level = 0;
       ball.setX(300);
       ball.setY(300);
       ball.setdx(0);
       ball.setdy(3 + level);
-   	addKeyListener(k);
+   	
       slider.setX(270);
       slider.setY(550);
+      
+      addKeyListener(k);
    }
 	
 	// boolean methods
@@ -94,11 +94,9 @@ public class Display extends JPanel
    public boolean pointScored() {
       for(int r = 0; r < blocks.length; r++) {
          for(int c = 0; c < blocks[0].length; c++) {
-            if(ball.getX() + ball.getDiameter() > blocks[r][c].getX() && ball.getX() < blocks[r][c].getX() + blocks[r][c].getWidth()) {
-               if(ball.getY() + ball.getDiameter() > blocks[r][c].getY() && ball.getY() < blocks[r][c].getY() + blocks[r][c].getHeight()) {
-                  return true;
-               }
-            }
+            if(collision(blocks[r][c], b)) {
+					return true;
+				}
          }
       }
       return false;
@@ -186,7 +184,7 @@ public class Display extends JPanel
          buffer.setColor(Color.WHITE);
          ball.draw(buffer);
       	
-         if(on1&&on2)
+         if(on1&&on2) 	// moves slider depending on if keys are pressed
          {
             slider.moveLeft();
          }
@@ -196,7 +194,6 @@ public class Display extends JPanel
          }
       
          repaint();
-         
       }
    }
    private class Key extends KeyAdapter {
@@ -207,7 +204,9 @@ public class Display extends JPanel
          }        
          
          if(e.getKeyCode()==KeyEvent.VK_A)
-            on2=true;
+         {
+				on2=true;
+			}
          if(e.getKeyCode()==KeyEvent.VK_RIGHT) 
          {
             on3 =true;

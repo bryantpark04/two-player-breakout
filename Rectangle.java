@@ -11,7 +11,6 @@ public abstract class Rectangle {
 	}
 	
 	public void draw(Graphics g) {
-		
 		g.fillRect(myX, myY, myWidth, myHeight);
 	}
 	

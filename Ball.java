@@ -14,7 +14,6 @@ public class Ball
 	}
 	
 	public void draw(Graphics g) {
-		
 		g.fillOval((int) myX, (int) myY, myDiameter, myDiameter);
 	}
 	public void update() {
@@ -32,7 +31,6 @@ public class Ball
 		if(myY > Driver.HEIGHT - myDiameter) {
 			return true;
 		}
-		
 		return false;
 	}
 	

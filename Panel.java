@@ -7,7 +7,6 @@ private Display display;
 public JFrame f;
 public JFrame fr;
 private EndPanel endpanel = new EndPanel();
-
 private Scoreboard scoreboard;
 	public Panel(JFrame l) {
 		f=l;
@@ -30,8 +29,6 @@ private Scoreboard scoreboard;
 		JLabel label = new JLabel(imgIcon);
 		label.setBounds(0, 0, 625, 320);
 		fr.getContentPane().add(label);
-
-      
 	}
    
 	

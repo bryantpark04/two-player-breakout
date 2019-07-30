@@ -9,18 +9,21 @@ public class EndPanel extends JPanel
    private BufferedImage myImage;
    private Graphics myBuffer;
    public boolean buttonClicked = false;
-
    public EndPanel()
    {
       setLayout(new BorderLayout());
       JPanel subpanel = new JPanel();
       add(subpanel, BorderLayout.SOUTH);
+      
       myImage = new BufferedImage(640, 360, 1);
       myBuffer = myImage.getGraphics();
+      
       JButton end=new JButton("Quit");
       end.addActionListener(new Listener());
+      
       JButton reset = new JButton("New Game");
       reset.addActionListener(new Listener2());
+      
       subpanel.add(reset);  
       subpanel.add(end);
    }
