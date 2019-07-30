@@ -30,10 +30,5 @@ public class EndPanel extends JPanel
          System.exit(0);
       }
    }
-   public void paintComponent(Graphics g)
-   {
-      ImageIcon end=new ImageIcon("lel.jpg");
-      g.drawImage(end.getImage(),0,0,640,300,null);
-   }
  }  
    
