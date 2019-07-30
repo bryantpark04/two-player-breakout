@@ -61,6 +61,8 @@ public class Display extends JPanel
       slider.setY(550);
       
       level++;
+      
+      slider.setWidth(slider.getWidth() - 5 * level);
    }
    public void reset() {
       level = 0;
@@ -94,7 +96,7 @@ public class Display extends JPanel
    public boolean pointScored() {
       for(int r = 0; r < blocks.length; r++) {
          for(int c = 0; c < blocks[0].length; c++) {
-            if(collision(blocks[r][c], b)) {
+            if(collision(blocks[r][c], ball)) {
 					return true;
 				}
          }
@@ -125,7 +127,7 @@ public class Display extends JPanel
                blocks[r][c].setX(-100);
                blocks[r][c].setY(-100);
                b.setdy(-1 * b.getdy());
-               b.setdx(Math.random() * (4 + level) - 2);
+               b.setdx(Math.random() * (4 + 2 * level) - (2 + level));
             }
          }
       }
