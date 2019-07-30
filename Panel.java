@@ -21,6 +21,9 @@ private Scoreboard scoreboard;
 	private class Listener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if(display.gameEnd()) {
+				scoreboard.storeHighScore();
+				display.stopGame();
+				JOptionPane.showMessageDialog(null, "You lost! Your score was: " + scoreboard.getScore());
 				System.exit(0);
 			}
 			if(display.pointScored()) {

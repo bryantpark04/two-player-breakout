@@ -10,10 +10,8 @@ public class Display extends JPanel
    private Ball ball;
    private Slider slider;
    private Block[][] blocks = new Block[10][6];
-   public boolean on1;
-   public boolean on2;
-   public boolean on3;
-   public boolean on4;
+   private Key k = new Key();
+   public boolean on1, on2, on3, on4;
    public Display() { 	// constructor
       myImage = new BufferedImage(Driver.WIDTH, Driver.HEIGHT, BufferedImage.TYPE_INT_RGB);
       buffer = myImage.getGraphics();
@@ -31,12 +29,22 @@ public class Display extends JPanel
          }
       }
       
-      addKeyListener(new Key()); 	// add key listener
+      addKeyListener(k); 	// add key listener
       setFocusable(true);
       
       Timer t = new Timer(10, new Listener()); 	// add timer listener
       t.start();
    }
+	
+	public void stopGame() {
+		ball.setdx(0);
+		ball.setdy(0);
+		removeKeyListener(k);
+		on1 = false;
+		on2 = false;
+		on3 = false;
+		on4 = false;
+	}
 	
 	// boolean methods
 	public boolean gameEnd() {
@@ -84,11 +92,19 @@ public class Display extends JPanel
 						blocks[r][c].setX(-100);
 						blocks[r][c].setY(-100);
 						b.setdy(-1 * b.getdy());
-						b.setdx(Math.random() * 2 - 1);
+						b.setdx(Math.random() * 4 - 2);
 					}
 				}
 			}
 		}
+	}
+	private boolean collision(Rectangle r, Ball b) {
+		if(b.getX() + b.getDiameter() > slider.getX() && b.getX() < slider.getX() + slider.getWidth()) {
+			if(b.getY() + b.getDiameter() > slider.getY() && b.getY() < slider.getY() + slider.getHeight()) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
    // Listeners
