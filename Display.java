@@ -78,29 +78,25 @@ public class Display extends JPanel
 	
 	// collision helpers
 	private void collisionSlider(Ball b) {
-		if(b.getX() + b.getDiameter() > slider.getX() && b.getX() < slider.getX() + slider.getWidth()) {
-			if(b.getY() + b.getDiameter() > slider.getY() && b.getY() < slider.getY() + slider.getHeight()) {
-				b.setdy(-1 * b.getdy());
-			}
+		if(collision(slider, b)) {
+			b.setdy(-1 * b.getdy());
 		}
 	}
 	private void collisionBlocks(Ball b) {
 		for(int r = 0; r < blocks.length; r++) {
 			for(int c = 0; c < blocks[0].length; c++) {
-				if(b.getX() + b.getDiameter() > blocks[r][c].getX() && b.getX() < blocks[r][c].getX() + blocks[r][c].getWidth()) {
-					if(b.getY() + b.getDiameter() > blocks[r][c].getY() && b.getY() < blocks[r][c].getY() + blocks[r][c].getHeight()) {
-						blocks[r][c].setX(-100);
-						blocks[r][c].setY(-100);
-						b.setdy(-1 * b.getdy());
-						b.setdx(Math.random() * 4 - 2);
-					}
+				if(collision(blocks[r][c], b)) {
+					blocks[r][c].setX(-100);
+					blocks[r][c].setY(-100);
+					b.setdy(-1 * b.getdy());
+					b.setdx(Math.random() * 4 - 2);
 				}
 			}
 		}
 	}
 	private boolean collision(Rectangle r, Ball b) {
-		if(b.getX() + b.getDiameter() > slider.getX() && b.getX() < slider.getX() + slider.getWidth()) {
-			if(b.getY() + b.getDiameter() > slider.getY() && b.getY() < slider.getY() + slider.getHeight()) {
+		if(b.getX() + b.getDiameter() > r.getX() && b.getX() < r.getX() + r.getWidth()) {
+			if(b.getY() + b.getDiameter() > r.getY() && b.getY() < r.getY() + r.getHeight()) {
 				return true;
 			}
 		}
