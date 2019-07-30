@@ -31,9 +31,7 @@ public class Display extends JPanel
             blocks[r][c] = new Block(1 + 60 * r, 1 + 30 * c);
          }
       }
-      
-   
-      
+
       addKeyListener(k); 	// add key listener
       setFocusable(true);
       
@@ -130,7 +128,7 @@ public class Display extends JPanel
                blocks[r][c].setX(-100);
                blocks[r][c].setY(-100);
                b.setdy(-1 * b.getdy());
-               b.setdx(Math.random() * (4 + level) - 2);
+               b.setdx(Math.random() * (6 + level) - 3);
             }
          }
       }
