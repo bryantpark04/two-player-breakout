@@ -12,11 +12,12 @@ public class Driver
 		JOptionPane.showMessageDialog(null, "This is meant to be a two player game. \nCooperation is key!");
 		JOptionPane.showMessageDialog(null, "Good luck!");
 		
-		JFrame frame = new JFrame("Breakout2");
-		frame.setSize(WIDTH, HEIGHT);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		frame.setContentPane(new Panel());
-      frame.setVisible(true);
-	}
+      JFrame f=new JFrame("Breakout2");
+      f.setSize(640,360);
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      f.setLocationRelativeTo(null);
+      f.setContentPane(new StartPanel(f));
+      f.setVisible(true);
+      
+			}
 }

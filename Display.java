@@ -16,10 +16,12 @@ public class Display extends JPanel
       myImage = new BufferedImage(Driver.WIDTH, Driver.HEIGHT, BufferedImage.TYPE_INT_RGB);
       buffer = myImage.getGraphics();
       
-      buffer.setColor(Color.white);
+      buffer.setColor(Color.black);
       buffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
       
+      
       ball = new Ball(300.0, 300.0, 0, 3);
+      
       
       slider = new Slider(270, 550);
       
@@ -28,6 +30,8 @@ public class Display extends JPanel
             blocks[r][c] = new Block(1 + 60 * r, 1 + 30 * c);
          }
       }
+      
+
       
       addKeyListener(k); 	// add key listener
       setFocusable(true);
@@ -106,15 +110,33 @@ public class Display extends JPanel
    // Listeners
    private class Listener implements ActionListener {
       public void actionPerformed(ActionEvent e) {
-         buffer.setColor(Color.white);
+         buffer.setColor(Color.black);
          buffer.fillRect(0, 0, Driver.WIDTH, Driver.HEIGHT);
       	
          try {
+            
             for(int r = 0; r < blocks.length; r++) {
-               for(int c = 0; c < blocks[0].length; c++) {
+               for(int c = 0; c < 2; c++) {
+                  buffer.setColor(Color.RED);
                   blocks[r][c].draw(buffer);
                }
             }
+            
+            for(int r = 0; r < blocks.length; r++) {
+               for(int c = 2; c < 4; c++) {
+                  buffer.setColor(Color.ORANGE);
+                  blocks[r][c].draw(buffer);
+               }
+            }
+            
+            for(int r = 0; r < blocks.length; r++) {
+               for(int c = 4; c < 6; c++) {
+                  buffer.setColor(Color.GREEN);
+                  blocks[r][c].draw(buffer);
+               }
+            }
+
+
          }
          catch(NullPointerException n) {
          	
@@ -125,7 +147,9 @@ public class Display extends JPanel
       	
          ball.update();
       	
+         buffer.setColor(Color.BLUE.brighter());
          slider.draw(buffer);
+         buffer.setColor(Color.WHITE);
          ball.draw(buffer);
       	
          if(on1&&on2)
