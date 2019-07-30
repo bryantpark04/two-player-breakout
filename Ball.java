@@ -14,7 +14,7 @@ public class Ball
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.black);
+		
 		g.fillOval((int) myX, (int) myY, myDiameter, myDiameter);
 	}
 	public void update() {

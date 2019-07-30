@@ -11,7 +11,7 @@ public abstract class Rectangle {
 	}
 	
 	public void draw(Graphics g) {
-		g.setColor(Color.black);
+		
 		g.fillRect(myX, myY, myWidth, myHeight);
 	}
 	
