@@ -57,6 +57,12 @@ public class Scoreboard extends JPanel
          System.out.println("High score could not be written to file! High score will be set to 0 on next run.");
       }
    }
+   public void reset() {
+		score = 0;
+		loadHighScore();
+		currentScore.setText(" Current score: " + score);
+		highScore.setText("High score: " + hs + " ");
+	}
    public int getScore() {
       return score;
    }

@@ -42,7 +42,7 @@ private Scoreboard scoreboard;
 				scoreboard.incrementScore();
 			}
 			if(display.roundWon()) {
-				display.reset();
+				display.newRound();
 			}
 		}
 	}

@@ -50,7 +50,7 @@ public class Display extends JPanel
       on3 = false;
       on4 = false;
    }
-   public void reset() {
+   public void newRound() {
       for(int r = 0; r < blocks.length; r++) {
          for(int c = 0; c < blocks[0].length; c++) {
             blocks[r][c].setX(1 + 60 * r);
@@ -67,6 +67,24 @@ public class Display extends JPanel
       slider.setY(550);
       
       level++;
+   }
+   public void reset() {
+      for(int r = 0; r < blocks.length; r++) {
+         for(int c = 0; c < blocks[0].length; c++) {
+            blocks[r][c].setX(1 + 60 * r);
+            blocks[r][c].setY(1 + 30 * c);
+         }
+      }
+      
+      ball.setX(300);
+      ball.setY(300);
+      ball.setdx(0);
+      ball.setdy(3 + level);
+   	
+      slider.setX(270);
+      slider.setY(550);
+      
+      level = 0;
    }
 	
 	// boolean methods
