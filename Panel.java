@@ -6,6 +6,7 @@ public class Panel extends JPanel {
 private Display display;
 public JFrame f;
 public JFrame fr;
+private EndPanel endpanel = new EndPanel();
 
 private Scoreboard scoreboard;
 	public Panel(JFrame l) {
@@ -23,7 +24,7 @@ private Scoreboard scoreboard;
 		fr.setSize(700, 700);
 		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fr.setLocationRelativeTo(null);
-		fr.setContentPane(new EndPanel());
+		fr.setContentPane(endpanel);
       fr.setVisible(false);
 		Icon imgIcon = new ImageIcon(this.getClass().getResource("tenor.gif"));
 		JLabel label = new JLabel(imgIcon);
@@ -47,6 +48,12 @@ private Scoreboard scoreboard;
 			}
 			if(display.roundWon()) {
 				display.newRound();
+			}
+			if(endpanel.buttonClicked) {
+				display.reset();
+				scoreboard.reset();
+				endpanel.buttonClicked = false;
+				fr.setVisible(false);
 			}
 		}
 	}

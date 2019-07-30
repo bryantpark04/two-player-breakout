@@ -74,15 +74,14 @@ public class Display extends JPanel
          }
       }
       
+      level = 0;
       ball.setX(300);
       ball.setY(300);
       ball.setdx(0);
       ball.setdy(3 + level);
-   	
+   	addKeyListener(k);
       slider.setX(270);
       slider.setY(550);
-      
-      level = 0;
    }
 	
 	// boolean methods
@@ -128,7 +127,7 @@ public class Display extends JPanel
                blocks[r][c].setX(-100);
                blocks[r][c].setY(-100);
                b.setdy(-1 * b.getdy());
-               b.setdx(Math.random() * (6 + level) - 3);
+               b.setdx(Math.random() * (4 + level) - 2);
             }
          }
       }

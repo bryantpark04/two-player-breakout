@@ -10,7 +10,7 @@ public class Driver
       JOptionPane.showMessageDialog(null, "Welcome to Breakout2!");
       JOptionPane.showMessageDialog(null, "It's like normal breakout, but you only move if both A and left arrow or D and right arrow are pressed.");
       JOptionPane.showMessageDialog(null, "This is meant to be a two player game. \nCooperation is key!");
-      JOptionPane.showMessageDialog(null, "Good luck!");
+      JOptionPane.showMessageDialog(null, "Good luck! (Press space to start)");
    	
       JFrame f=new JFrame("Breakout2");
       f.setSize(640,360);
@@ -18,6 +18,5 @@ public class Driver
       f.setLocationRelativeTo(null);
       f.setContentPane(new StartPanel(f));
       f.setVisible(true);
-      
    }
 }
