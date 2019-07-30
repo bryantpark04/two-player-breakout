@@ -20,11 +20,15 @@ private Scoreboard scoreboard;
 		Timer t = new Timer(10, new Listener());
 		t.start();
       fr = new JFrame("Breakout2");
-		fr.setSize(625, 320);
+		fr.setSize(700, 700);
 		fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fr.setLocationRelativeTo(null);
 		fr.setContentPane(new EndPanel());
       fr.setVisible(false);
+		Icon imgIcon = new ImageIcon(this.getClass().getResource("tenor.gif"));
+		JLabel label = new JLabel(imgIcon);
+		label.setBounds(0, 0, 625, 320);
+		fr.getContentPane().add(label);
 
       
 	}
