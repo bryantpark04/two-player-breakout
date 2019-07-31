@@ -10,7 +10,6 @@ public class StartPanel extends JPanel
    public JFrame f;
    private BufferedImage myImage;
    private Graphics myBuffer;
-   private Sound s;
    private AudioInputStream inputStream;
    private Clip clip;
 

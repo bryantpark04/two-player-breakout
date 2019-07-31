@@ -52,7 +52,7 @@ public class Scoreboard extends JPanel
          p.println(hs);
          p.close();
       }
-      catch(IOException e)
+      catch(Exception e)
       {
          System.out.println("High score could not be written to file! High score will be set to 0 on next run.");
       }
