@@ -2,12 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import javax.sound.sampled.*;
+import java.io.*;
 
 public class StartPanel extends JPanel
 {
    public JFrame f;
    private BufferedImage myImage;
    private Graphics myBuffer;
+   private Sound s;
+   private AudioInputStream inputStream;
+   private Clip clip;
 
    public StartPanel(JFrame fr)
    {
@@ -33,10 +38,25 @@ public class StartPanel extends JPanel
 		   frame.setLocationRelativeTo(null);
 		   frame.setContentPane(new Panel(f));
          frame.setVisible(true);
+         playClip("ree.wav");
 
       }
    }
       
+   public void playClip(String filename)
+   {
+      try{
+         inputStream=AudioSystem.getAudioInputStream(new File(filename));
+         DataLine.Info lineInfo=new DataLine.Info(Clip.class,inputStream.getFormat());
+         clip=(Clip)AudioSystem.getLine(lineInfo);
+         clip.open(inputStream);
+         
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+               }
+      catch(Exception e)
+      {}
+    }
+         
 
    public void paintComponent(Graphics g)
    {
