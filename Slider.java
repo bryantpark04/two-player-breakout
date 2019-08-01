@@ -2,7 +2,6 @@
  * A Slider is a Rectangle that maintains information about its dimensions and position. 
  * A Slider knows how to move left and right.
  * @author Bryant Park
- * @author Gregory Byun
  * @version 2019-07-30
  */
 

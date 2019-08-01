@@ -58,11 +58,11 @@ public class Scoreboard extends JPanel
       }
    }
    public void reset() {
-		score = 0;
-		loadHighScore();
-		currentScore.setText(" Current score: " + score);
-		highScore.setText("High score: " + hs + " ");
-	}
+      score = 0;
+      loadHighScore();
+      currentScore.setText(" Current score: " + score);
+      highScore.setText("High score: " + hs + " ");
+   }
    public int getScore() {
       return score;
    }

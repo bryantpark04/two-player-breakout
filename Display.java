@@ -26,7 +26,7 @@ public class Display extends JPanel
             blocks[r][c] = new Block(1 + 60 * r, 1 + 30 * c);
          }
       }
-
+   
       addKeyListener(k); 	// add key listener
       setFocusable(true);
       
@@ -89,7 +89,7 @@ public class Display extends JPanel
 	// boolean methods
    public boolean gameEnd() {
       if(ball.hitsBottom()) {
-          return true;
+         return true;
       }
       return false;
    }
@@ -97,8 +97,8 @@ public class Display extends JPanel
       for(int r = 0; r < blocks.length; r++) {
          for(int c = 0; c < blocks[0].length; c++) {
             if(collision(blocks[r][c], ball)) {
-					return true;
-				}
+               return true;
+            }
          }
       }
       return false;
@@ -207,8 +207,8 @@ public class Display extends JPanel
          
          if(e.getKeyCode()==KeyEvent.VK_A)
          {
-				on2=true;
-			}
+            on2=true;
+         }
          if(e.getKeyCode()==KeyEvent.VK_RIGHT) 
          {
             on3 =true;
