@@ -34,9 +34,9 @@ public class EndPanel extends JPanel
       }
    }
    private class Listener2 implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			buttonClicked = true;
-		}
-	}
- }  
+      public void actionPerformed(ActionEvent e) {
+         buttonClicked = true;
+      }
+   }
+}  
    

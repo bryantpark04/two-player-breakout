@@ -32,13 +32,13 @@ public class StartPanel extends JPanel
          setVisible(false);
          f.setVisible(false);
          JFrame frame = new JFrame("Breakout2");
-		   frame.setSize(Driver.WIDTH, Driver.HEIGHT);
-		   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		   frame.setLocationRelativeTo(null);
-		   frame.setContentPane(new Panel(f));
+         frame.setSize(Driver.WIDTH, Driver.HEIGHT);
+         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         frame.setLocationRelativeTo(null);
+         frame.setContentPane(new Panel(f));
          frame.setVisible(true);
          playClip("ree.wav");
-
+      
       }
    }
       
@@ -50,11 +50,11 @@ public class StartPanel extends JPanel
          clip=(Clip)AudioSystem.getLine(lineInfo);
          clip.open(inputStream);
          
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-               }
+         clip.loop(Clip.LOOP_CONTINUOUSLY);
+      }
       catch(Exception e)
       {}
-    }
+   }
          
 
    public void paintComponent(Graphics g)
@@ -62,4 +62,4 @@ public class StartPanel extends JPanel
       ImageIcon breakout=new ImageIcon("ree.jpg");
       g.drawImage(breakout.getImage(),0,0,640,300,null);
    }
- }  
+}  
